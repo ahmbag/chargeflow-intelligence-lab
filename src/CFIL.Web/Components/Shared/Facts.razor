@@ -1,0 +1,43 @@
+@if(Value.ValueKind==JsonValueKind.Object)
+{
+    <dl class="facts">
+    @foreach(var property in Value.EnumerateObject())
+    {
+        <dt>@Label(property.Name)</dt>
+        <dd>
+        @if(property.Value.ValueKind is JsonValueKind.Object or JsonValueKind.Array)
+        {
+            @if(property.Value.Get("amount") is not null)
+            {<strong class="money">@property.Value.Text("amount") @property.Value.Text("currency")</strong>}
+            else {<details><summary>@Label(property.Name) · recorded details</summary><Facts Value="property.Value" /></details>}
+        }
+        else {<span title="@property.Value.ToString()">@Scalar(property.Value)</span>}
+        </dd>
+    }
+    </dl>
+}
+else if(Value.ValueKind==JsonValueKind.Array)
+{
+    @if(Value.GetArrayLength()==0){<p class="muted">None recorded.</p>}
+    @foreach(var item in Value.EnumerateArray())
+    {<div class="fact-item"><Facts Value="item" /></div>}
+}
+else {<span>@Scalar(Value)</span>}
+@code {
+    [Parameter] public JsonElement Value {get;set;}
+    public static string Label(string text)
+    {
+        var label=System.Text.RegularExpressions.Regex.Replace(text,"([a-z])([A-Z])","$1 $2").Replace("Kwh","kWh",StringComparison.Ordinal).Replace("Kw","kW",StringComparison.Ordinal).Replace("Soc","SoC",StringComparison.Ordinal);
+        return label.Length==0?label:char.ToUpperInvariant(label[0])+label[1..];
+    }
+    private static string Scalar(JsonElement value)
+    {
+        if(value.ValueKind is JsonValueKind.Null or JsonValueKind.Undefined)return "N/A";
+        // Physical floating-point measurements are readable; the tooltip retains
+        // the original value. Authoritative money is encoded as text and is never
+        // rounded by this presentation helper.
+        if(value.ValueKind==JsonValueKind.Number && !value.TryGetInt64(out _) && value.TryGetDecimal(out var number))
+            return number.ToString("0.###",System.Globalization.CultureInfo.InvariantCulture);
+        return value.ToString();
+    }
+}

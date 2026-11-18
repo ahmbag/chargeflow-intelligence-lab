@@ -1,0 +1,510 @@
+{
+  "version": "TARIFFS-V1",
+  "simulationTimeOrigin": "2026-01-01T00:00:00Z",
+  "operators": [
+    {
+      "id": "OP-NORTH",
+      "name": "NorthCharge Synthetic",
+      "externalReference": "SIM-OP/NORTH",
+      "parkIds": [
+        "PARK-01",
+        "PARK-04"
+      ]
+    },
+    {
+      "id": "OP-CENTRAL",
+      "name": "CentralCharge Synthetic",
+      "externalReference": "SIM-OP/CENTRAL",
+      "parkIds": [
+        "PARK-02",
+        "PARK-05"
+      ]
+    },
+    {
+      "id": "OP-SOUTH",
+      "name": "SouthCharge Synthetic",
+      "externalReference": "SIM-OP/SOUTH",
+      "parkIds": [
+        "PARK-03"
+      ]
+    }
+  ],
+  "paymentRoutes": [
+    {
+      "id": "DIRECT",
+      "kind": "DIRECT",
+      "externalReference": "SIM-PAY/DIRECT"
+    },
+    {
+      "id": "FLEET-CARD",
+      "kind": "CONTRACT",
+      "externalReference": "SIM-PAY/CARD"
+    }
+  ],
+  "tariffs": [
+    {
+      "tariffId": "OP-NORTH-DIRECT",
+      "version": "1",
+      "operatorId": "OP-NORTH",
+      "paymentRouteId": "DIRECT",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 0,
+      "validFromMs": 0,
+      "validToMs": 43200000,
+      "applicableParks": [
+        "PARK-01",
+        "PARK-04"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "DIRECT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.58",
+        "sessionEur": "2",
+        "chargingEurPerHour": "0",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-NORTH-DIRECT",
+      "version": "2",
+      "operatorId": "OP-NORTH",
+      "paymentRouteId": "DIRECT",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 28800000,
+      "validFromMs": 43200000,
+      "validToMs": 172800000,
+      "applicableParks": [
+        "PARK-01",
+        "PARK-04"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "DIRECT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.62",
+        "sessionEur": "2",
+        "chargingEurPerHour": "0",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-NORTH-FLEET-CARD",
+      "version": "1",
+      "operatorId": "OP-NORTH",
+      "paymentRouteId": "FLEET-CARD",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 0,
+      "validFromMs": 0,
+      "validToMs": 43200000,
+      "applicableParks": [
+        "PARK-01",
+        "PARK-04"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "CONTRACT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.52",
+        "sessionEur": "1",
+        "chargingEurPerHour": "0.65",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-NORTH-FLEET-CARD",
+      "version": "2",
+      "operatorId": "OP-NORTH",
+      "paymentRouteId": "FLEET-CARD",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 28800000,
+      "validFromMs": 43200000,
+      "validToMs": 172800000,
+      "applicableParks": [
+        "PARK-01",
+        "PARK-04"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "CONTRACT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.56",
+        "sessionEur": "1",
+        "chargingEurPerHour": "0.65",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-CENTRAL-DIRECT",
+      "version": "1",
+      "operatorId": "OP-CENTRAL",
+      "paymentRouteId": "DIRECT",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 0,
+      "validFromMs": 0,
+      "validToMs": 43200000,
+      "applicableParks": [
+        "PARK-02",
+        "PARK-05"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "DIRECT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.41",
+        "sessionEur": "12",
+        "chargingEurPerHour": "3",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-CENTRAL-DIRECT",
+      "version": "2",
+      "operatorId": "OP-CENTRAL",
+      "paymentRouteId": "DIRECT",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 28800000,
+      "validFromMs": 43200000,
+      "validToMs": 172800000,
+      "applicableParks": [
+        "PARK-02",
+        "PARK-05"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "DIRECT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.45",
+        "sessionEur": "12",
+        "chargingEurPerHour": "3",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-CENTRAL-FLEET-CARD",
+      "version": "1",
+      "operatorId": "OP-CENTRAL",
+      "paymentRouteId": "FLEET-CARD",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 0,
+      "validFromMs": 0,
+      "validToMs": 43200000,
+      "applicableParks": [
+        "PARK-02",
+        "PARK-05"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "CONTRACT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.35",
+        "sessionEur": "15",
+        "chargingEurPerHour": "5",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-CENTRAL-FLEET-CARD",
+      "version": "2",
+      "operatorId": "OP-CENTRAL",
+      "paymentRouteId": "FLEET-CARD",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 28800000,
+      "validFromMs": 43200000,
+      "validToMs": 172800000,
+      "applicableParks": [
+        "PARK-02",
+        "PARK-05"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "CONTRACT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.39",
+        "sessionEur": "15",
+        "chargingEurPerHour": "5",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-SOUTH-DIRECT",
+      "version": "1",
+      "operatorId": "OP-SOUTH",
+      "paymentRouteId": "DIRECT",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 0,
+      "validFromMs": 0,
+      "validToMs": 43200000,
+      "applicableParks": [
+        "PARK-03"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "DIRECT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.49",
+        "sessionEur": "5",
+        "chargingEurPerHour": "1",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-SOUTH-DIRECT",
+      "version": "2",
+      "operatorId": "OP-SOUTH",
+      "paymentRouteId": "DIRECT",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 28800000,
+      "validFromMs": 43200000,
+      "validToMs": 172800000,
+      "applicableParks": [
+        "PARK-03"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "DIRECT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.53",
+        "sessionEur": "5",
+        "chargingEurPerHour": "1",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-SOUTH-FLEET-CARD",
+      "version": "1",
+      "operatorId": "OP-SOUTH",
+      "paymentRouteId": "FLEET-CARD",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 0,
+      "validFromMs": 0,
+      "validToMs": 43200000,
+      "applicableParks": [
+        "PARK-03"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "CONTRACT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.46",
+        "sessionEur": "2",
+        "chargingEurPerHour": "0.5",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    },
+    {
+      "tariffId": "OP-SOUTH-FLEET-CARD",
+      "version": "2",
+      "operatorId": "OP-SOUTH",
+      "paymentRouteId": "FLEET-CARD",
+      "currency": "EUR",
+      "priceBasis": "NET",
+      "publishedAtMs": 28800000,
+      "validFromMs": 43200000,
+      "validToMs": 172800000,
+      "applicableParks": [
+        "PARK-03"
+      ],
+      "connectors": [
+        "CCS",
+        "MCS"
+      ],
+      "eligibility": "CONTRACT",
+      "priceComponents": {
+        "energyEurPerKwh": "0.50",
+        "sessionEur": "2",
+        "chargingEurPerHour": "0.5",
+        "occupancyEurPerHour": "18",
+        "chargingStepSeconds": 1,
+        "occupancyStepSeconds": 60,
+        "occupancyFreeSeconds": 300
+      },
+      "roundingPolicy": {
+        "version": "ROUND-EUR-V1",
+        "moneyDecimals": 2,
+        "energyDecimals": 9,
+        "mode": "ToEven"
+      },
+      "sourceClassification": "SYNTHETIC",
+      "bindingRule": "SESSION_START_LOCKED"
+    }
+  ],
+  "contracts": [
+    {
+      "id": "CONTRACT-ALPHA-NORTH",
+      "version": "1",
+      "fleetId": "FLEET-ALPHA",
+      "operatorId": "OP-NORTH",
+      "paymentRouteId": "FLEET-CARD",
+      "publishedAtMs": 0,
+      "validFromMs": 0,
+      "validToMs": 86400000,
+      "externalReference": "SIM-CONTRACT/ALPHA-NORTH"
+    },
+    {
+      "id": "CONTRACT-BETA-CENTRAL",
+      "version": "1",
+      "fleetId": "FLEET-BETA",
+      "operatorId": "OP-CENTRAL",
+      "paymentRouteId": "FLEET-CARD",
+      "publishedAtMs": 0,
+      "validFromMs": 0,
+      "validToMs": 57600000,
+      "externalReference": "SIM-CONTRACT/BETA-CENTRAL"
+    }
+  ]
+}

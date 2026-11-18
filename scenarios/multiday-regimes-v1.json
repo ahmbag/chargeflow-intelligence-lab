@@ -1,0 +1,48 @@
+{
+  "version": "MULTIDAY-REGIMES-V1",
+  "timeZone": "UTC-fixed",
+  "phases": [
+    {
+      "name": "normal",
+      "startSeconds": 0,
+      "endSeconds": 86400
+    },
+    {
+      "name": "before-change",
+      "startSeconds": 86400,
+      "endSeconds": 172800
+    },
+    {
+      "name": "immediate-change",
+      "startSeconds": 172800,
+      "endSeconds": 194400
+    },
+    {
+      "name": "adaptation",
+      "startSeconds": 194400,
+      "endSeconds": 345600
+    },
+    {
+      "name": "recovery",
+      "startSeconds": 345600,
+      "endSeconds": 432000
+    }
+  ],
+  "suddenShift": [
+    {
+      "scheduledAtSeconds": 0,
+      "publishedAtSeconds": 172800,
+      "effectiveAtSeconds": 172800,
+      "observedAtSeconds": 172800,
+      "gridFactor": 0.35
+    },
+    {
+      "scheduledAtSeconds": 0,
+      "publishedAtSeconds": 345600,
+      "effectiveAtSeconds": 345600,
+      "observedAtSeconds": 345600,
+      "gridFactor": 1
+    }
+  ],
+  "learnerAccess": "Only existing observable capacity events; no future schedule access."
+}

@@ -1,0 +1,41 @@
+{
+  "version": "MULTIDAY-EVALUATION-V1",
+  "developmentSeeds": [901, 902],
+  "suddenShiftSeeds": [1001, 1002, 1003],
+  "stableSeed": 1004,
+  "strategies": ["M0", "M1", "M2"],
+  "commonPolicy": "CONTROLLED P2 / TIME_FIRST; ACCOUNTING_ONLY E0",
+  "horizonSeconds": 432000,
+  "plannedTrucksPerDay": 50,
+  "plannedCarsPerDay": 1000,
+  "learningGate": {"minimumLabelsPerStream": 30, "minimumRelativeMaeImprovement": 0.05},
+  "adaptationGate": {"minimumLabelsPerPhase": 20, "minimumRelativeMaeImprovement": 0.05, "phases": ["immediate-change", "adaptation"]},
+  "operationalGate": {
+    "minimumMeanTruckHorizonImprovementSeconds": 30,
+    "maximumTruckArrivalLossPerRun": 0,
+    "maximumTruckPunctualLossPerRun": 0,
+    "maximumAdditionalTruckStrandingsPerRun": 0,
+    "maximumAdditionalUnsuccessfulTrucksPerRun": 0,
+    "maximumCarArrivalLossPerRun": 0,
+    "maximumCarHorizonIncreaseSecondsPerRun": 120,
+    "maximumCarObservedWaitIncreaseSecondsPerRun": 60
+  },
+  "budgets": {
+    "wallSecondsPerRun": 14400,
+    "processTreeRssBytes": 5368709120,
+    "freeReserveBytes": 4294967296,
+    "eventBytesPerRun": 4294967296,
+    "telemetryBytesPerRun": 1073741824,
+    "totalLogicalBytesPerRun": 8589934592,
+    "snapshotIntervalSeconds": 3600,
+    "telemetryIntervalSeconds": 300,
+    "observerCriticalEvents": 500000,
+    "observerTraces": 250000,
+    "observerPointers": 2500000,
+    "observerPayloadBytes": 5242880,
+    "observerColdOpenSeconds": 60,
+    "observerRssBytes": 3221225472,
+    "observerSeekSeconds": 5
+  },
+  "inferenceLimit": "Engineering evaluation with three shift seeds and one stable seed; no formal significance claim. No evaluation-driven tuning or seed substitution."
+}

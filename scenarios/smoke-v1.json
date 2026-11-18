@@ -1,0 +1,588 @@
+{
+  "schemaVersion": "1.0",
+  "id": "SMOKE-V1",
+  "seed": 42,
+  "durationSeconds": 14400,
+  "stepSeconds": 1,
+  "truckCount": 1,
+  "carCount": 1,
+  "departureWindowSeconds": 60,
+  "telemetryIntervalSeconds": 60,
+  "snapshotIntervalSeconds": 600,
+  "maxQueueWaitSeconds": 5400,
+  "connectingSeconds": 30,
+  "deadlockTimeoutSeconds": 600,
+  "policy": "nearest-compatible-v1",
+  "network": {
+    "lengthKm": 240,
+    "lanes": 2,
+    "speedLimitMps": 36.11,
+    "direction": "eastbound"
+  },
+  "parks": [
+    {
+      "id": "PARK-01",
+      "positionKm": 40,
+      "gridPowerKw": 1200,
+      "accessWidthM": 3.5,
+      "queueCapacity": 16,
+      "bays": [
+        {
+          "id": "BAY-01",
+          "lengthM": 22,
+          "widthM": 3.5,
+          "maxTrailerLengthM": 15,
+          "turningRadiusM": 15,
+          "driveThrough": true,
+          "connector": {
+            "id": "PORT-01",
+            "type": "MCS",
+            "maxGridPowerKw": 750
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-02",
+          "lengthM": 22,
+          "widthM": 3.5,
+          "maxTrailerLengthM": 15,
+          "turningRadiusM": 15,
+          "driveThrough": true,
+          "connector": {
+            "id": "PORT-02",
+            "type": "MCS",
+            "maxGridPowerKw": 750
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-03",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-03",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-04",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-04",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-05",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-05",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-06",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-06",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        }
+      ],
+      "changes": []
+    },
+    {
+      "id": "PARK-02",
+      "positionKm": 80,
+      "gridPowerKw": 800,
+      "accessWidthM": 3.5,
+      "queueCapacity": 12,
+      "bays": [
+        {
+          "id": "BAY-01",
+          "lengthM": 22,
+          "widthM": 3.5,
+          "maxTrailerLengthM": 15,
+          "turningRadiusM": 15,
+          "driveThrough": true,
+          "connector": {
+            "id": "PORT-01",
+            "type": "CCS",
+            "maxGridPowerKw": 350
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-02",
+          "lengthM": 22,
+          "widthM": 3.5,
+          "maxTrailerLengthM": 15,
+          "turningRadiusM": 15,
+          "driveThrough": true,
+          "connector": {
+            "id": "PORT-02",
+            "type": "CCS",
+            "maxGridPowerKw": 350
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-03",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-03",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-04",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-04",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-05",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-05",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-06",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-06",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-07",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-07",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        }
+      ],
+      "changes": []
+    },
+    {
+      "id": "PARK-03",
+      "positionKm": 120,
+      "gridPowerKw": 950,
+      "accessWidthM": 3.5,
+      "queueCapacity": 10,
+      "bays": [
+        {
+          "id": "BAY-01",
+          "lengthM": 17,
+          "widthM": 3.5,
+          "maxTrailerLengthM": 15,
+          "turningRadiusM": 15,
+          "driveThrough": true,
+          "connector": {
+            "id": "PORT-01",
+            "type": "MCS",
+            "maxGridPowerKw": 750
+          },
+          "conflicts": [
+            "BAY-02"
+          ],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-02",
+          "lengthM": 17,
+          "widthM": 3.5,
+          "maxTrailerLengthM": 15,
+          "turningRadiusM": 15,
+          "driveThrough": true,
+          "connector": {
+            "id": "PORT-02",
+            "type": "MCS",
+            "maxGridPowerKw": 750
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-03",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-03",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-04",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-04",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-05",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-05",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-06",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-06",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-07",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-07",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-08",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-08",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        }
+      ],
+      "changes": []
+    },
+    {
+      "id": "PARK-04",
+      "positionKm": 160,
+      "gridPowerKw": 500,
+      "accessWidthM": 3.5,
+      "queueCapacity": 8,
+      "bays": [
+        {
+          "id": "BAY-01",
+          "lengthM": 22,
+          "widthM": 3.5,
+          "maxTrailerLengthM": 15,
+          "turningRadiusM": 15,
+          "driveThrough": true,
+          "connector": {
+            "id": "PORT-01",
+            "type": "CCS",
+            "maxGridPowerKw": 350
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-02",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-02",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-03",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-03",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-04",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-04",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-05",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-05",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-06",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-06",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        }
+      ],
+      "changes": []
+    },
+    {
+      "id": "PARK-05",
+      "positionKm": 200,
+      "gridPowerKw": 1500,
+      "accessWidthM": 3.5,
+      "queueCapacity": 20,
+      "bays": [
+        {
+          "id": "BAY-01",
+          "lengthM": 22,
+          "widthM": 3.5,
+          "maxTrailerLengthM": 15,
+          "turningRadiusM": 15,
+          "driveThrough": true,
+          "connector": {
+            "id": "PORT-01",
+            "type": "MCS",
+            "maxGridPowerKw": 750
+          },
+          "conflicts": [],
+          "exitBlockedBy": [
+            "BAY-02"
+          ]
+        },
+        {
+          "id": "BAY-02",
+          "lengthM": 22,
+          "widthM": 3.5,
+          "maxTrailerLengthM": 15,
+          "turningRadiusM": 15,
+          "driveThrough": true,
+          "connector": {
+            "id": "PORT-02",
+            "type": "MCS",
+            "maxGridPowerKw": 750
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-03",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-03",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-04",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-04",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-05",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-05",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-06",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-06",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        },
+        {
+          "id": "BAY-07",
+          "lengthM": 6,
+          "widthM": 2.5,
+          "maxTrailerLengthM": 0,
+          "turningRadiusM": 6,
+          "driveThrough": false,
+          "connector": {
+            "id": "PORT-07",
+            "type": "CCS",
+            "maxGridPowerKw": 150
+          },
+          "conflicts": [],
+          "exitBlockedBy": []
+        }
+      ],
+      "changes": []
+    }
+  ]
+}

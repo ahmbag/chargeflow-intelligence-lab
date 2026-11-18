@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0",
+  "protocol": "CFIL-03-evaluation-v1",
+  "initialization": "cold-start-per-run",
+  "reference": [
+    {
+      "scenario": "baseline",
+      "seed": 42
+    },
+    {
+      "scenario": "baseline",
+      "seed": 43
+    },
+    {
+      "scenario": "charging-bottleneck",
+      "seed": 42
+    },
+    {
+      "scenario": "traffic-peak",
+      "seed": 42
+    }
+  ],
+  "development": [
+    {
+      "scenario": "learning-moderate",
+      "seed": 201
+    },
+    {
+      "scenario": "learning-regime",
+      "seed": 201
+    }
+  ],
+  "evaluation": [
+    {
+      "scenario": "learning-moderate",
+      "seed": 301
+    },
+    {
+      "scenario": "learning-moderate",
+      "seed": 302
+    },
+    {
+      "scenario": "learning-moderate",
+      "seed": 303
+    },
+    {
+      "scenario": "learning-moderate",
+      "seed": 304
+    },
+    {
+      "scenario": "learning-moderate",
+      "seed": 305
+    }
+  ],
+  "minimumCoverage": {
+    "truckObserved": 200,
+    "truckPositiveWait": 50,
+    "evaluableRuns": 5
+  },
+  "primary": {
+    "metric": "unweighted-mean-of-per-run-Truck-MAE-seconds",
+    "baseline": "grouped",
+    "candidate": "river"
+  },
+  "qualityRules": {
+    "requiredRelativeImprovement": 0.02,
+    "maxPerRunTruckMaeRatio": 1.25,
+    "maxPooledTruckP90Ratio": 1.25,
+    "note": "Conservative relative guardrails, fixed before evaluation; no statistical significance claim."
+  },
+  "adaptation": {
+    "control": "learning-moderate-201",
+    "regime": "learning-regime-201",
+    "changeTimeMs": 21600000,
+    "freezeAfterLabels": 100,
+    "alarmAction": "observe-only",
+    "preWindowMs": [
+      0,
+      21600000
+    ],
+    "postWindowMs": [
+      21600000,
+      86400000
+    ]
+  },
+  "equality": {
+    "sameEnvironment": "exact canonical JSON and serialized state SHA256",
+    "crossPlatform": "not claimed"
+  },
+  "budget": {
+    "maxRssBytes": 402653184,
+    "maxPredictSeconds": 0.1,
+    "maxUpdateSeconds": 0.2,
+    "maxCheckpointSeconds": 1,
+    "maxSimulationLagMs": 7200000,
+    "maxJournalLag": 512,
+    "maxRecoverySeconds": 120,
+    "maxFinalCatchupSeconds": 120,
+    "maxShadowWallRatio": 1.5,
+    "shadowWallAllowanceSeconds": 60,
+    "maxBatchRecords": 64,
+    "maxCheckpointBytes": 4194304,
+    "comparison": "sequential same-host consumer-only control versus consumer+learner"
+  }
+}

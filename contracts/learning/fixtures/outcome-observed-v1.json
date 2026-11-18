@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "messageId": "fixture:decision:000000005:queue-v1:resolved",
+  "messageType": "OutcomeResolved",
+  "runId": "fixture",
+  "observationId": "fixture:decision:000000005:queue-v1",
+  "chargingAttemptId": "fixture:decision:000000005",
+  "vehicleId": "A",
+  "target": "QUEUE_TO_CHARGE_START_SECONDS",
+  "targetVersion": "1.0",
+  "featureSchemaVersion": "1.0",
+  "occurredAtSimTimeMs": 1000,
+  "availableAtSimTimeMs": 1000,
+  "sourceCutoffSequence": 8,
+  "status": "OBSERVED",
+  "targetSeconds": 0,
+  "lowerBoundSeconds": null,
+  "reason": "charging-start-observed"
+}

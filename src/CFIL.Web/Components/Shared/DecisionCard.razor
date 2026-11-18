@@ -1,0 +1,28 @@
+<article class="decision-card">
+    <div class="eyebrow">Decision @Clock(Item.TimeMs) · source #@Item.SourceSequence</div>
+    <h3>@Item.VehicleId → @(Item.SelectedPark??"No park selected")</h3>
+    <p>@Item.Explanation</p>
+    <div class="badge">@Item.Reason</div>
+    <details><summary>Decision context and vehicle constraints</summary><Facts Value="Item.Context" /></details>
+    <details open><summary>Candidates and exclusions (@Item.Candidates.Items().Length)</summary>
+        <div class="card-grid">
+        @foreach(var candidate in Item.Candidates.Items())
+        {<section class="candidate"><h4>@candidate.Text("parkId")</h4><Facts Value="candidate" /></section>}
+        </div>
+    </details>
+    <details><summary>Forecasts available at decision time</summary><Facts Value="Item.Forecast" /></details>
+    <details><summary>Recorded score components and ranking</summary><Facts Value="Item.Scores" /></details>
+    @if(Item.Economics is {} economics)
+    {<details><summary>Economic estimates and technical recommendation</summary><Facts Value="economics" /></details>}
+    <details><summary>Execution acknowledgements (@Item.Execution.Length)</summary>
+    @foreach(var e in Item.Execution){<h4>@e.Type · @Clock(e.TimeMs)</h4><Facts Value="e.Facts" />}
+    </details>
+    <details><summary>Observed outcomes available in this view (@Item.LaterOutcomes.Length)</summary>
+    @foreach(var e in Item.LaterOutcomes){<h4>@e.Type · available @Clock(e.TimeMs)</h4><Facts Value="e.Facts" />}
+    </details>
+    @foreach(var limit in Item.Limits){<p class="muted small">@limit</p>}
+</article>
+@code {
+    [Parameter,EditorRequired] public DecisionDetail Item {get;set;}=default!;
+    private static string Clock(long ms)=>(ms>=86400000?$"Day {ms/86400000+1} · ":"")+TimeSpan.FromMilliseconds(ms).ToString(@"hh\:mm\:ss");
+}

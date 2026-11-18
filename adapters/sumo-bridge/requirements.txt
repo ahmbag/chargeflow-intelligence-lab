@@ -1,0 +1,4 @@
+eclipse-sumo==1.25.0
+traci==1.25.0
+sumolib==1.25.0
+psutil==7.0.0

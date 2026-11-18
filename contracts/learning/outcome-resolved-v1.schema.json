@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:cfil:learning:outcome-resolved:1.0",
+  "title": "outcome-resolved v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "availableAtSimTimeMs",
+    "chargingAttemptId",
+    "featureSchemaVersion",
+    "lowerBoundSeconds",
+    "messageId",
+    "messageType",
+    "observationId",
+    "occurredAtSimTimeMs",
+    "reason",
+    "runId",
+    "schemaVersion",
+    "sourceCutoffSequence",
+    "status",
+    "target",
+    "targetSeconds",
+    "targetVersion",
+    "vehicleId"
+  ],
+  "properties": {
+    "featureSchemaVersion": {
+      "const": "1.0"
+    },
+    "observationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "availableAtSimTimeMs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "messageId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vehicleId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "targetVersion": {
+      "const": "1.0"
+    },
+    "chargingAttemptId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occurredAtSimTimeMs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "runId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target": {
+      "const": "QUEUE_TO_CHARGE_START_SECONDS"
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "sourceCutoffSequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "messageType": {
+      "const": "OutcomeResolved"
+    },
+    "status": {
+      "enum": [
+        "OBSERVED",
+        "RIGHT_CENSORED",
+        "COMPETING_EVENT",
+        "INCOMPLETE_RUN"
+      ]
+    },
+    "targetSeconds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "lowerBoundSeconds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "OBSERVED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "targetSeconds": {
+            "type": "number"
+          },
+          "lowerBoundSeconds": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "targetSeconds": {
+            "type": "null"
+          },
+          "lowerBoundSeconds": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  ]
+}

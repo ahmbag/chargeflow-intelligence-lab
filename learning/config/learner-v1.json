@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "modelConfigVersion": "linear-v1",
+  "featureVersion": "1.0",
+  "targetVersion": "1.0",
+  "initialization": "cold-start-per-run",
+  "seed": 0,
+  "groupMinCount": 5,
+  "startSeconds": 0,
+  "warmupLabels": 20,
+  "freezeAfterLabels": 100,
+  "rollingWindow": 100,
+  "model": {
+    "learningRate": 0.005,
+    "interceptLearningRate": 0.01,
+    "l2": 0.001,
+    "gradientClip": 10000
+  },
+  "drift": {
+    "scaleSeconds": 3600,
+    "adwin": {
+      "delta": 0.002,
+      "clock": 16,
+      "max_buckets": 5,
+      "min_window_length": 5,
+      "grace_period": 32
+    }
+  }
+}

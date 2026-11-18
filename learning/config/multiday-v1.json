@@ -1,0 +1,12 @@
+{
+  "version": "MULTIDAY-ADAPTATION-V1",
+  "adwin": {"delta": 0.002, "clock": 8, "min_window_length": 5, "grace_period": 20},
+  "minimumPairedLabels": 20,
+  "minimumTruckLabels": 20,
+  "minimumRelativeImprovement": 0.05,
+  "maximumTruckMaeRatio": 1.0,
+  "cooldownSeconds": 21600,
+  "maximumChallengerLabels": 100,
+  "rollingWindow": 30,
+  "signalScaleSeconds": 3600
+}

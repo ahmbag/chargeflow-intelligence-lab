@@ -1,0 +1,8 @@
+[
+  {
+    "key": "demo-smoke",
+    "name": "Demo \u00b7 SUMO smoke scenario",
+    "group": "PUBLIC-DEMO",
+    "directory": "runs/demo-smoke"
+  }
+]

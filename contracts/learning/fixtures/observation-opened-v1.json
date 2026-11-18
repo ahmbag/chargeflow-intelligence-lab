@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "messageId": "fixture:decision:000000005:queue-v1:opened",
+  "messageType": "ObservationOpened",
+  "runId": "fixture",
+  "observationId": "fixture:decision:000000005:queue-v1",
+  "chargingAttemptId": "fixture:decision:000000005",
+  "vehicleId": "A",
+  "target": "QUEUE_TO_CHARGE_START_SECONDS",
+  "targetVersion": "1.0",
+  "featureSchemaVersion": "1.0",
+  "occurredAtSimTimeMs": 1000,
+  "availableAtSimTimeMs": 1000,
+  "sourceCutoffSequence": 6,
+  "features": {
+    "vehicleKind": "Truck",
+    "soc": 0.5,
+    "batteryCapacityKwh": 100,
+    "maxGridChargingKw": 200,
+    "vehiclesAhead": 0,
+    "occupiedCompatibleBays": 0,
+    "compatibleBayCount": 2,
+    "blockedCompatibleBays": 0,
+    "availableGridKw": 500,
+    "arrivalsLast900Seconds": 0,
+    "completedChargeCount": 0,
+    "meanCompletedChargeSeconds": null,
+    "timeOfDaySeconds": 1
+  },
+  "featureHash": "814a0eef6488090c4f5fa017b3eb539097db8526c0b2c515be546374178de073"
+}

@@ -1,0 +1,9 @@
+.venv/
+.packages/
+**/bin/
+**/obj/
+**/__pycache__/
+runs/
+*.sqlite*
+*.key
+.env*

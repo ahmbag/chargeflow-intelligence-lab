@@ -1,0 +1,70 @@
+{
+  "version": "CFIL05-EVALUATION-V3",
+  "developmentSeeds": [
+    611,
+    612,
+    693
+  ],
+  "evaluationSeeds": [
+    711,
+    712,
+    713,
+    714,
+    715
+  ],
+  "strategies": [
+    "E0",
+    "E1",
+    "E2"
+  ],
+  "scenario": "baseline-v1",
+  "durationSeconds": 86400,
+  "truckCount": 50,
+  "carCount": 1000,
+  "technicalPolicy": "P2",
+  "initialModelReference": "CFIL04 development-only seed 401 frozen checkpoint",
+  "sensitivity": {
+    "timeValueMultipliers": [
+      0.8,
+      1.2
+    ],
+    "meaning": "Revaluation of recorded outcomes and decision scores only; no alternative-policy operational claim"
+  },
+  "comparisons": [
+    "E1-vs-E0",
+    "E2-vs-E0",
+    "E2-vs-E1"
+  ],
+  "economicPrimaryMetric": "Sum over all 50 planned trucks: observed provider fees + nonoverlapping valued time + non-energy distance + incremental lateness + initial/end battery inventory correction",
+  "inventoryReferenceEurPerKwh": ".50",
+  "maximumAdditionalPlannedSeconds": 1800,
+  "economicHysteresisEur": "5.00",
+  "qualityGates": {
+    "maxTruckArrivalLossPerSeed": 0,
+    "maxTruckPunctualLossPerSeed": 0,
+    "maxAdditionalTruckStrandingsPerSeed": 0,
+    "maxAdditionalUnsuccessfulTrucksPerSeed": 0,
+    "maxAdditionalIncompleteTrucksPerSeed": 0,
+    "maxTruckHorizonIncreaseSecondsPerSeed": 1800,
+    "maxCarArrivalLossPerSeed": 5,
+    "maxCarHorizonIncreaseSecondsPerSeed": 60,
+    "maxCarObservedWaitIncreaseSecondsPerSeed": 120,
+    "hardInvariantViolations": 0,
+    "unresolvedPrices": 0
+  },
+  "gateRationale": "CFIL04 PKW and completion gates retained. Truck mean horizon may increase by at most 1800s, matching the explicit economic time budget; punctuality and success cannot regress. Old CFIL04 verdicts are unchanged.",
+  "budget": {
+    "maximumConcurrentSimulations": 2,
+    "minimumFreeBytesBeforeRun": 26843545600,
+    "maxWallSecondsPerRun": 7200,
+    "maxProcessTreeRssBytes": 1073741824,
+    "maxArtifactBytesPerRun": 3221225472,
+    "maxDecisionBarrierSeconds": 10,
+    "maxEconomicRecordSeconds": 5,
+    "maxCostReplaySeconds": 120,
+    "maxMeanE2ToE0WallRatio": 3
+  },
+  "developmentFixtureSelection": "Seed 693 chosen from deterministic vehicle input attributes for a smaller battery and high charging power, leaving positive deadline slack. Fixture parks 5/8 km with equal 750 kW connectors. Engineering witness only; excluded from primary evaluation.",
+  "budgetRationale": "The 5-second durable-record limit is retained. Four concurrent synchronous writers exceeded it in V2 (6.3521842s and 7.8896627s). V3 permits two simulations at a time only after full-day qualification at that concurrency. An isolated full-day development run measured 0.2769004s. All monetary parameters and operational/utility gates remain unchanged.",
+  "retiredEvaluation": "V1 was stopped before any completed evaluation because its 1s resource limit contradicted existing development evidence. V2 retained four complete runs but failed its 5s durable-record limit under four concurrent writers; its remaining runs were stopped. Both protocols and all results/partial sources are preserved. Seeds 701-710 are excluded from final V3 evaluation."
+}

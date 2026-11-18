@@ -1,0 +1,16 @@
+<div class="table-wrap"><table><caption>Fixed study verdict · all five paired seeds, 50 planned trucks per arm and seed</caption><thead><tr><th>Comparison</th><th>Economic benefit</th><th>Operational gates</th><th>Mean adjusted economic difference</th></tr></thead><tbody>
+@if(Value.Get("comparisons") is {} comparisons)
+{
+    @foreach(var pair in comparisons.EnumerateObject())
+    {
+        var mean=pair.Value.Get("meanMoneyDifferences")?.Get("adjustedEconomicCost");
+        <tr><th>@pair.Name</th><td><strong>@pair.Value.Text("economicBenefit")</strong></td><td>@(pair.Value.Flag("operationalGatesPassed")?"PASS":"NOT PASSED")</td><td>@(mean?.Text("amount")??"N/A") EUR / paired run<br /><small>Not per truck</small></td></tr>
+    }
+}
+else
+{
+    @foreach(var pair in Value.EnumerateObject())
+    {<tr><th>@pair.Name</th><td>Economic evaluation: N/A in CFIL04</td><td>@pair.Value.Text("verdict") · operational benefit</td><td>N/A</td></tr>}
+}
+</tbody></table></div><details><summary>Full accepted quality evidence and sensitivity</summary><Facts Value="Value" /></details>
+@code{[Parameter]public JsonElement Value{get;set;}}

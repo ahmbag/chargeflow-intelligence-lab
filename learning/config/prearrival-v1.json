@@ -1,0 +1,15 @@
+{
+  "version": "prearrival-config-v1",
+  "featureVersion": "PRE_ARRIVAL_DECISION_V1",
+  "modelVersion": "PREARRIVAL_RIVER_V1",
+  "warmupLabels": 10,
+  "groupMinCount": 3,
+  "horizonUpperSeconds": [300, 900, 1800, 3600],
+  "minimumDevelopmentLabelsPerHorizon": 5,
+  "model": {
+    "learningRate": 0.005,
+    "interceptLearningRate": 0.01,
+    "l2": 0.001,
+    "gradientClip": 10000
+  }
+}

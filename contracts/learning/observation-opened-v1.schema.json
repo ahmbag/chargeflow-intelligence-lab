@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:cfil:learning:observation-opened:1.0",
+  "title": "observation-opened v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "availableAtSimTimeMs",
+    "chargingAttemptId",
+    "featureHash",
+    "featureSchemaVersion",
+    "features",
+    "messageId",
+    "messageType",
+    "observationId",
+    "occurredAtSimTimeMs",
+    "runId",
+    "schemaVersion",
+    "sourceCutoffSequence",
+    "target",
+    "targetVersion",
+    "vehicleId"
+  ],
+  "properties": {
+    "featureSchemaVersion": {
+      "const": "1.0"
+    },
+    "observationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "availableAtSimTimeMs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "messageId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vehicleId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "targetVersion": {
+      "const": "1.0"
+    },
+    "chargingAttemptId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occurredAtSimTimeMs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "runId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target": {
+      "const": "QUEUE_TO_CHARGE_START_SECONDS"
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "sourceCutoffSequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "messageType": {
+      "const": "ObservationOpened"
+    },
+    "features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "arrivalsLast900Seconds",
+        "availableGridKw",
+        "batteryCapacityKwh",
+        "blockedCompatibleBays",
+        "compatibleBayCount",
+        "completedChargeCount",
+        "maxGridChargingKw",
+        "meanCompletedChargeSeconds",
+        "occupiedCompatibleBays",
+        "soc",
+        "timeOfDaySeconds",
+        "vehicleKind",
+        "vehiclesAhead"
+      ],
+      "properties": {
+        "availableGridKw": {
+          "type": "number",
+          "minimum": 0
+        },
+        "batteryCapacityKwh": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "completedChargeCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blockedCompatibleBays": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "soc": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "timeOfDaySeconds": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 86400
+        },
+        "vehiclesAhead": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "arrivalsLast900Seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "meanCompletedChargeSeconds": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "compatibleBayCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "vehicleKind": {
+          "enum": [
+            "Car",
+            "Truck"
+          ]
+        },
+        "maxGridChargingKw": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "occupiedCompatibleBays": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "featureHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}
